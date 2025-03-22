@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Floating Popup with PiP</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+      }
+      button {
+        padding: 10px 15px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Floating Popup using Picture-in-Picture API</h1>
+    <button onclick="openPiP()">Open Floating Window</button>
+
+    <script>
+      let pipWindow;
+
+      async function openPiP() {
+        if (!("documentPictureInPicture" in window)) {
+          alert("Your browser does not support Document PiP!");
+          return;
+        }
+
+        try {
+          pipWindow = await documentPictureInPicture.requestWindow({
+            width: 400,
+            height: 300,
+          });
+          renderContent(pipWindow.document);
+        } catch (error) {
+          console.error("Error opening PiP:", error);
+        }
+      }
+
+      function renderContent(doc) {
+        doc.body.style.cssText =
+          "text-align:center; font-family:sans-serif; padding:20px; background:#f4f4f4;";
+        doc.body.innerHTML = `
+        <h3>Floating Window</h3>
+        <p>This is a floating PiP window.</p>
+        <button id="closeBtn">Close PiP</button>
+      `;
+
+        doc.getElementById("closeBtn").addEventListener("click", () => {
+          if (pipWindow) pipWindow.close();
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/output.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="mainContainer">
+      <div class="header">
+        <div titlePopUp="Wrap Day" class="wrapDay">
+          <img src="./imgs/icons8-sunset.svg" alt="" srcset="" />
+        </div>
+        <div class="focus">focus</div>
+      </div>
+      <div class="main">
+        <div class="containerOfInfo">
+          <div class="title">Tasks</div>
+          <div class="time">
+            <span titlePopUp="Total Planned Time" class="total-time">12h30m</span>
+            →
+            <span titlePopUp="Completion Time" class="completionTime">5:40pm</span>
+          </div>
+        </div>
+        <div class="addTaskBtn btn1">+</div>
+        <div class="containerOfTasks"></div>
+        <div class="addTaskBtn btn2">+</div>
+        <div class="laterContainer">
+          <div class="titleContainer">
+            <div class="leftLine">
+              <div></div>
+            </div>
+            <div class="later">later(2)</div>
+            <div class="rightLine">
+              <div></div>
+            </div>
+          </div>
+          <div class="containerOfPostponedTasks containerOfTasks">
+            <div class="task">
+              <input type="text" />
+              <div class="info">
+                <div titlePopUp="Put it Back" class="putBackTaskBtn btn">
+                  <img src="./imgs/up-arrow-svgrepo-com.svg" alt="" srcset="" />
+                </div>
+                <div titlePopUp="Delete" class="deleteLaterTaskBtn btn">
+                  <img src="./imgs/rubbish-bin-svgrepo-com.svg" alt="" srcset="" />
+                </div>
+              </div>
+            </div>
+            <div class="task">
+              <input type="text" />
+              <div class="info">
+                <div titlePopUp="Put it Back" class="putBackTaskBtn btn">
+                  <img src="./imgs/up-arrow-svgrepo-com.svg" alt="" srcset="" />
+                </div>
+                <div titlePopUp="Delete" class="deleteLaterTaskBtn btn">
+                  <img src="./imgs/rubbish-bin-svgrepo-com.svg" alt="" srcset="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="containerOfBtns">
+          <div titlePopUp="Help" class="help">
+            <img src="./imgs/question-mark-circle-svgrepo-com.svg" alt="" srcset="" />
+          </div>
+          <div titlePopUp="Dark Mode" class="lightMode">
+            <img src="./imgs/sun-svgrepo-com (1).svg" alt="" srcset="" />
+          </div>
+          <div titlePopUp="Settings" class="settings">
+            <img src="./imgs/settings-svgrepo-com (1).svg" alt="" srcset="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

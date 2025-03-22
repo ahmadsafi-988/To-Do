@@ -1,0 +1,33 @@
+{
+  "userName": "ahmad",
+  "password": "pass1234",
+  "tasks": [
+    {
+      "id": "1230",
+      "name": "work on the project",
+      "duration": 30,
+      "isRepeated": false,
+      "isCompeleted": false,
+      "isSatAsRest": false,
+      "isSatForLater": false
+    },
+    {
+      "id": "1231",
+      "name": "do the homework",
+      "duration": 30,
+      "isRepeated": false,
+      "isCompeleted": false,
+      "isSatAsRest": false,
+      "isSatForLater": false
+    },
+    {
+      "id": "1232",
+      "name": "study mathmetics",
+      "duration": 30,
+      "isRepeated": false,
+      "isCompeleted": false,
+      "isSatAsRest": false,
+      "isSatForLater": false
+    }
+  ]
+}

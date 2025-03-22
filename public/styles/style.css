@@ -1,0 +1,616 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CSS variables */
+:root {
+  --mainBackGroundColor: white;
+  --primary-black: black;
+  --primary-gray: #ddd;
+  --seconday-gray: #848484;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  overflow: hidden;
+  font-family: "Assistant", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+body .mainContainer {
+  width: 50%;
+  height: 95%;
+  background-color: var(--mainBackGroundColor);
+  overflow: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  box-shadow: -1px 6px 7px 1px rgba(217, 217, 217, 1);
+  border-radius: 10px;
+  padding: 25px;
+}
+
+/* HEADER STYLES */
+body .mainContainer .header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-content: center;
+}
+
+body .mainContainer .header .focus {
+  width: 80px;
+  height: 40px;
+  background-color: var(--primary-black);
+  color: var(--mainBackGroundColor);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+  z-index: 100;
+}
+
+body .mainContainer .header .focus:hover {
+  background-color: var(--primary-gray);
+  color: var(--primary-black);
+  transition: 0.4s;
+}
+
+body .mainContainer .header .wrapDay {
+  width: 50px;
+  height: 40px;
+  box-shadow: -1px 6px 7px 1px rgba(217, 217, 217, 1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 100;
+  position: relative;
+}
+
+body .mainContainer .header .wrapDay::after {
+  content: attr(titlePopUp);
+  position: absolute;
+  top: 120%;
+  /* transform: translateX(-50%); */
+  background-color: #2b3440;
+  color: #d7dde4;
+  padding: 5px;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  white-space: nowrap;
+  font-size: 14px;
+  padding: 5px;
+}
+
+body .mainContainer .header .wrapDay:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+body .mainContainer .header .wrapDay > img {
+  width: 30px;
+  height: 30px;
+}
+
+body .mainContainer .header .wrapDay:hover {
+  background-color: var(--primary-gray);
+  transition: 0.4s;
+}
+
+/* MAIN STYLES */
+
+body .mainContainer .main {
+  width: 100%;
+  min-height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+body .mainContainer .main .containerOfInfo {
+  width: 100%;
+  height: 75px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-end;
+  margin-bottom: 5px;
+}
+
+body .mainContainer .main .containerOfInfo .title {
+  width: 100%;
+  height: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: center;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+body .mainContainer .main .containerOfInfo .time {
+  color: var(--seconday-gray);
+}
+
+body .mainContainer .main .containerOfInfo .time .total-time {
+  position: relative;
+}
+
+body .mainContainer .main .containerOfInfo .time .completionTime {
+  position: relative;
+}
+body .mainContainer .main .containerOfInfo .time > span::after {
+  content: attr(titlePopUp);
+  position: absolute;
+  left: 110%;
+  z-index: 1000;
+  /* transform: translateX(-50%); */
+  background-color: #2b3440;
+  color: #d7dde4;
+  padding: 5px;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  white-space: nowrap;
+  font-size: 14px;
+  padding: 5px;
+}
+
+body .mainContainer .main .containerOfInfo .time > span:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+body .mainContainer .main .addTaskBtn {
+  width: 100%;
+  height: 35px;
+  font-size: 32px;
+  color: var(--seconday-gray);
+  background-color: #f3f4f6;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  border-radius: 6px;
+  opacity: 0;
+}
+
+body .mainContainer .main .addTaskBtn.btn2 {
+  margin-top: 10px;
+}
+
+body .mainContainer .main .addTaskBtn:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+body .mainContainer .main .containerOfTasks {
+  width: 100%;
+  height: fit-content;
+}
+
+body .mainContainer .main .containerOfTasks .task {
+  width: 100%;
+  height: 35px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-around;
+  box-shadow: -3px 3px 17px 0px rgba(217, 217, 217, 1);
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+body .mainContainer .main .containerOfTasks .task > input {
+  width: calc(100% - 70px);
+  height: 90%;
+  outline: none;
+  border: none;
+  line-height: 1.3;
+  font-size: 16px;
+  font-weight: bold;
+  /* margin-right: 20px; */
+  flex-shrink: 1;
+}
+
+body .mainContainer .main .containerOfTasks .task .info {
+  width: 10%;
+  height: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
+  min-width: 50px;
+  cursor: pointer;
+}
+
+/* body .mainContainer .main .containerOfTasks .task .info.space-between {
+  justify-content: space-between;
+} */
+
+body .mainContainer .main .containerOfTasks .task .info .durationOfTask {
+  color: var(--seconday-gray);
+}
+
+body .mainContainer .main .containerOfTasks .task:hover .info .durationOfTask {
+  display: none;
+}
+
+body .mainContainer .main .containerOfTasks .task .info > input {
+  width: 50%;
+  height: 80%;
+  border-radius: 5px;
+  text-align: center;
+  border: 2px solid var(--seconday-gray);
+  outline: none;
+  font-weight: bold;
+  background-color: #f3f4f6;
+  display: none;
+}
+
+body .mainContainer .main .containerOfTasks .task:hover > .info > input {
+  display: inline-block;
+}
+
+body .mainContainer .main .containerOfTasks .task .info .options {
+  width: 40%;
+  height: 80%;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  display: none;
+}
+
+body .mainContainer .main .containerOfTasks .task:hover > .info > .options {
+  display: flex;
+}
+
+body .mainContainer .main .containerOfTasks .task .info .options > img {
+  width: 90%;
+  height: 80%;
+}
+
+body .mainContainer .main .containerOfTasks .task .info .options > .operationPopUps {
+  width: 160px;
+  height: 30px;
+  position: absolute;
+  bottom: 105%;
+  left: -50%;
+  /* left: 40%;*/
+  transform: translateX(-65%);
+  background-color: white;
+  display: none;
+  box-shadow: -3px 3px 17px 0px rgba(217, 217, 217, 1);
+  border-radius: 5px;
+}
+
+body .mainContainer .main .containerOfTasks .task .info .options > .operationPopUps > div:hover {
+  background-color: var(--primary-gray);
+}
+
+body .mainContainer .main .containerOfTasks .task .info .options:hover .operationPopUps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: center;
+}
+
+body .mainContainer .main .containerOfTasks .task .info .options > .operationPopUps > div {
+  width: 18%;
+  height: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* body
+  .mainContainer
+  .main
+  .containerOfTasks
+  .task
+  .info
+  .options
+  > .operationPopUps
+  > div:nth-child(4) {
+  width: 19%;
+} */
+
+body .mainContainer .main .containerOfTasks .task .info .options > .operationPopUps > div > img {
+  width: 80%;
+  height: 80%;
+}
+
+/* POPUPS */
+.options > .operationPopUps > div::after {
+  content: attr(titlePopUp);
+  position: absolute;
+  bottom: 105%;
+  /* transform: translateX(-50%); */
+  background-color: #2b3440;
+  color: #d7dde4;
+  padding: 5px;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  white-space: nowrap;
+  font-size: 14px;
+  padding: 5px;
+}
+
+.options > .operationPopUps > div.hidden {
+  display: none;
+}
+
+/* Show the tooltip when hovering over the .options element  */
+.options > .operationPopUps > div:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.options > .operationPopUps > .deleteBtn::after {
+  transform: translateX(-20%);
+}
+
+body .mainContainer .main .laterContainer {
+  width: 100%;
+  height: fit-content;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* align-content: center; */
+}
+
+body .mainContainer .main .laterContainer .titleContainer {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  border-radius: 5px;
+}
+
+body .mainContainer .main .laterContainer .titleContainer:hover {
+  background-color: var(--primary-gray);
+}
+
+body .mainContainer .main .laterContainer .titleContainer .later {
+  margin-right: 10px;
+  margin-left: 10px;
+  width: 50px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--seconday-gray);
+}
+
+body .mainContainer .main .laterContainer .titleContainer .leftLine {
+  height: 100%;
+  width: 30%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+body .mainContainer .main .laterContainer .titleContainer .rightLine {
+  height: 100%;
+  width: 30%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+body .mainContainer .main .laterContainer .titleContainer .leftLine > div {
+  width: 100%;
+  height: 3px;
+  background-color: var(--seconday-gray);
+  border-radius: 3px;
+}
+
+body .mainContainer .main .laterContainer .titleContainer .rightLine > div {
+  width: 100%;
+  height: 3px;
+  background-color: var(--seconday-gray);
+  border-radius: 3px;
+}
+
+body .mainContainer .main .laterContainer .containerOfPostponedTasks .task .info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  opacity: 0;
+}
+
+body .mainContainer .main .laterContainer .containerOfPostponedTasks .task:hover .info {
+  opacity: 1;
+}
+
+body .mainContainer .main .laterContainer .containerOfPostponedTasks .task .info .btn {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+body .mainContainer .main .laterContainer .containerOfPostponedTasks .task .info .btn:hover {
+  background-color: var(--primary-gray);
+}
+
+body .mainContainer .main .laterContainer .containerOfPostponedTasks .task .info .btn img {
+  width: 80%;
+  height: 80%;
+}
+
+body .mainContainer .main .laterContainer .containerOfPostponedTasks .task .info .btn::after {
+  content: attr(titlePopUp);
+  position: absolute;
+  bottom: 105%;
+  /* transform: translateX(-50%); */
+  background-color: #2b3440;
+  color: #d7dde4;
+  padding: 5px;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  white-space: nowrap;
+  font-size: 14px;
+  padding: 5px;
+}
+
+body .mainContainer .main .laterContainer .containerOfPostponedTasks .task .info .btn:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* FOOTER */
+body .mainContainer .footer {
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+body .mainContainer .footer > div.containerOfBtns {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+body .mainContainer .footer > div.containerOfBtns > div {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+body .mainContainer .footer > div.containerOfBtns > div > img {
+  width: 80%;
+  height: 80%;
+}
+
+body .mainContainer .footer > div.containerOfBtns > div::after {
+  content: attr(titlePopUp);
+  position: absolute;
+  bottom: 105%;
+  /* transform: translateX(-50%); */
+  background-color: #2b3440;
+  color: #d7dde4;
+  padding: 5px;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  white-space: nowrap;
+  font-size: 14px;
+  padding: 5px;
+}
+
+body .mainContainer .footer > div.containerOfBtns > div:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* FOR JS */
+body .mainContainer .main .containerOfTasks .task .info.hidden {
+  opacity: 0;
+  cursor: auto;
+}
+
+/* body .mainContainer .main .containerOfTasks .task .info */
+body .mainContainer .main .containerOfTasks .task .info .durationOfTask.hidden {
+  opacity: 0;
+}
+
+body .mainContainer .header .focus.hide {
+  background-color: var(--primary-gray);
+  color: var(--primary-black);
+  cursor: auto;
+}
+
+body .mainContainer .main .containerOfTasks .task.completed > input {
+  text-decoration: line-through;
+  color: var(--seconday-gray);
+}
+
+body .mainContainer .main .containerOfTasks .task .info > .taskDuration.hidden {
+  opacity: 0;
+  cursor: auto;
+}
+
+body .mainContainer .main .containerOfTasks .task .info .options > .operationPopUps > div.hidden {
+  display: none;
+}
+
+body .mainContainer .main .containerOfTasks .task.slideUp {
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+  transform: translateY(-100%);
+  opacity: 0;
+}
